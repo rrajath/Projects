@@ -5,7 +5,10 @@
 import math
 
 def is_a_prime(x):
-    for i in range(2, x):
+    if i % 2 == 0:
+	return True
+# No need to check if x is divisible by even numbers
+    for i in range(3, x, 2):
         if x % i == 0:
             return False
     return True
@@ -21,4 +24,6 @@ if __name__ == '__main__':
             if is_a_prime(i):
                 factors.append(i)
                 n /= i
-    print factors
+	if n == 1:
+	    break
+    print list(set(factors))
